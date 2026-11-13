@@ -1,0 +1,13 @@
+name: basictests
+on:
+  push:
+    branches: [main]
+jobs:
+  lab9-basic-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          bash validate-data.sh "pearse mccarthy" "0831122334"
+          bash validate-data.sh "pearse mccarthy" "08311223344"
+          bash validate-data.sh "pearseT mccarthy" "0831122334"
