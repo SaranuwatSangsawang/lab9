@@ -1,0 +1,91 @@
+  428  gh auth login 
+  429  gh repo create lab9 --public --add-readme
+  430  gh repo view lab9 --json visibility -q .visibility
+  431  gh label create EPIC --color 6f42c1 --description "Epic: lab9"
+  432  gh issue create --title "do lab9" --label EPIC   --body "Epic for completing lab9."
+  433  cd lab9 
+  434  git clone git@github.com:SaranuwatSangsawang/lab9.git
+  435  cd lab9 
+  436  gh label create EPIC --color 6f42c1 --description "lab9"
+  437  gh issue create --title "do lab9" --label EPIC   --body "Epic for completing lab9."
+  438  gh auth login
+  439  8988-2A06
+  440  gh auth login 
+  441  gh issue create --title "create validate-data script" --label enhancement --assignee "@me"   --body "Create a bash or python script (validate-data.sh) that accepts a name and mobile number on the command line.
+  442  - echo PASS if name <= 15 chars and mobile number <= 10 chars
+  443  - else echo FAIL"
+  444  echo '[ ${#1} -le 15 ] && [ ${#2} -le 10 ] && echo PASS || echo FAIL' > validate-data.sh
+  445  bash validate-data.sh "pearse mccarthy" "0831122334"
+  446  bash validate-data.sh "pearse mccarthy" "08311223344"
+  447  bash validate-data.sh "pearseT mccarthy" "0831122334"
+  448  gh issue create --title "create yaml test script" --label enhancement --assignee "@me"   --body "Create .github/workflows/basictests.yml with job lab9-basic-tests that runs the 3 validate-data.sh tests."
+  449  mkdir -p .github/workflows
+  450  cat > .github/workflows/basictests.yml <<'EOF'
+  451  name: basictests
+  452  on:
+  453    push:
+  454      branches: [main]
+  455  jobs:
+  456    lab9-basic-tests:
+  457      runs-on: ubuntu-latest
+  458      steps:
+  459        - uses: actions/checkout@v4
+  460        - run: |
+  461            bash validate-data.sh "pearse mccarthy" "0831122334"
+  462            bash validate-data.sh "pearse mccarthy" "08311223344"
+  463            bash validate-data.sh "pearseT mccarthy" "0831122334"
+  464  EOF
+  465  cat .github/workflows/basictests.yml
+  466  git add validate-data.sh .github/workflows/basictests.yml
+  467  git commit -m "Add basictests workflow"
+  468  git push -u origin main
+  469  nano .github/workflows/basictests.yml
+  470  git issue close 3 --done 
+  471  gh issue close 3 --done 
+  472  gh issue close 3 --"done" 
+  473  gh issue close 3 --comment "done" 
+  474  gh issue create --title "create project view" --label enhancement --assignee "@me"   --body "Create a project called lab9 with ONE table view with only the columns LABEL, TITLE, ASSIGNEE, in that order."
+  475  gh auth refresh -s project
+  476  gh project create --owner "@me" --title lab9
+  477  gh project list --owner "@me" 
+  478  gh project link 1 --owner "@me" --repo lab9
+  479  gh project link 4 --owner "@me" --repo lab9
+  480  gh project link 4 --owner SaranuwatSangsawang --repo SaranuwatSangsawang/lab9
+  481  gh issue create --title "create test branch" --label enhancement --assignee "@me"   --body "Create a branch called test. Change the max name length in validate-data.sh to 20. Update basictests.yml so the action runs on pushes to main and test."
+  482  git checkout -b test
+  483  nano validate-data.sh
+  484  git commit -am "Change max name length to 20" 
+  485  git push -u origin test 
+  486  gh run list
+  487  git checkout test
+  488  origin/test'.
+  489  x00224599@cloudshell:~/lab9$ 
+  490  gh run list --branch test
+  491  gh run list --branch test
+  492  sed -i 's/branches: \[main\]/branches: [main, test]/' .github/workflows/basictests.yml
+  493  cat .github/workflows/basictests.yml
+  494  git commit -am "Run action on main and test"
+  495  git push
+  496  gh run list --branch test
+  497  cd lab9
+  498  history > history.txt
+  499  nano history.txt
+  500  ls
+  501  history | grep -E 'gh |git |validate-data|sed |nano |mkdir|cat ' > history.txt
+  502  nano history.txt
+  503  git clone git@github.com:SaranuwatSangsawang/lab9.git
+  504  cd ..
+  505  git clone git@github.com:SaranuwatSangsawang/lab9.git
+  506  cd lab9
+  507  ls
+  508  history > history.txt
+  509  nano history.txt
+  510  cd.
+  511  cd .
+  512  cd ..
+  513  nano history.txt
+  514  sed -i '1,427d' history.txt
+  515  nano history.txt
+  516  history > history.txt
+  517  nano history.txt
+  518  history | sed -n '428,$p' > history.txt
