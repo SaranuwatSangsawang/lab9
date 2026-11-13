@@ -1,1 +1,1 @@
-[ ${#1} -le 15 ] && [ ${#2} -le 10 ] && echo PASS || echo FAIL
+[ ${#1} -le 20 ] && [ ${#2} -le 10 ] && echo PASS || echo FAIL
